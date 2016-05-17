@@ -25,11 +25,11 @@ public class Main {
 					valor =  scan.nextDouble();
 					o = new Objeto(valor,peso);
 					objetos[i]=o;
-					//System.out.println(objetos[i].getPeso());
-					//System.out.println(objetos[i].getValor());
+					System.out.println(objetos[i].getPeso());
+					System.out.println(objetos[i].getValor());
 				}
 				Mochila m = new Mochila();
-				m.mochila_rp(objetos, M);
+				System.out.println(m.mochila_rp(objetos, M));
 
 			}
 		} catch (FileNotFoundException e) {

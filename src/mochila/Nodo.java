@@ -14,7 +14,9 @@ public class Nodo {
 	}
 	public void setSol(boolean[] sol) {
 		/*****cuidado con la copia********/
-		this.sol = sol;
+		for (int i = 0; i < sol.length ; i++){
+			this.sol[i] = sol [i];
+		}
 	}
 	public int getK() {
 		return k;
