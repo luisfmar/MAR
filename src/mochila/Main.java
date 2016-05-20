@@ -27,7 +27,8 @@ public class Main {
 					o = new Objeto(valor,peso);
 					objetos[i]=o;
 				}
-
+				System.out.println("***************Cotas ajustadas*********************************");
+				
 				Mochila m = new Mochila();
 				Arrays.sort(objetos);
 				Tupla sol = m.mochila_rp(objetos, M);				
@@ -47,6 +48,7 @@ public class Main {
 						System.out.print(",0");
 				}
 				System.out.println(")");
+				
 				System.out.println("*******************Cotas ingenuas*****************************");				
 				Mochila m2 = new Mochila();
 				Tupla sol2 = m2.mochila_rp2(objetos, M);
@@ -66,7 +68,7 @@ public class Main {
 						System.out.print(",0");
 				}
 				System.out.println(")");
-				System.out.println("************************************************");
+
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

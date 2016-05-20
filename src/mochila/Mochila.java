@@ -131,29 +131,20 @@ public class Mochila {
 		double opt = beneficio;		
 		int j = k + 1;
 		int n = objetos.length; 
-		
-		while (j <= n - 1 && objetos[j].getPeso() <= hueco ){
-			/*mientras podemos coger el objeto j entero */
-			hueco -= objetos[j].getPeso();
-			opt += objetos[j].getValor();
-			//pes += objetos[j].getValor();
+		/*
+		while (j <= n - 1  ){
+			if ( objetos[j].getPeso() <= hueco ){*/
+				/*mientras podemos coger el objeto j entero */
+				/*hueco -= objetos[j].getPeso();
+				opt += objetos[j].getValor();
+				//pes += objetos[j].getValor();
+			}
 			j=j+1;
 		}
-		if ( j <= n-1 ){
-				/*Quedan objetos por probar
-				 * fraccionamos el objeto j (solucion voraz)*/
+		*/
+		if(j < n && hueco>=0){
 				opt += (hueco/objetos[j].getPeso())*objetos[j].getValor();
-				/*extendemos a una solución en la version 0/1 */
-				/*j=j+1;				
-				while (j <= n - 1 && hueco > 0){
-					if ( objetos[j].getPeso() <= hueco ) {
-						hueco -= objetos[j].getPeso();
-						pes += objetos[j].getValor();
-					}
-					j=j+1;
-				}*/
 		}
-
 		Tupla t = new Tupla(opt,pes);
 		return t;
 	}
