@@ -27,11 +27,38 @@ public class Main {
 					o = new Objeto(valor,peso);
 					objetos[i]=o;
 				}
-				System.out.println("***************Cotas ajustadas*********************************");
+				for (int tipocota = 0; tipocota<2;tipocota ++){
+					if (tipocota == 0 )
+						System.out.println("***************Cotas Ajustadas*********************************");
+					else if(tipocota == 1 )
+						System.out.println("***************Cotas Ingenua*********************************");
+					/*else if(tipocota == 2 )
+						System.out.println("***************Cotas Ingenua de Luis García*********************************");*/
+					Mochila m = new Mochila();
+					Arrays.sort(objetos);
+					Tupla sol = m.mochila_rp(objetos, M,tipocota);				
+					System.out.println("Solucion de siguiendo el orden (Objeto 0, .... Objeto N)");
+					for (int i = 0; i < sol.getSol().length ; i++ )
+						System.out.println("Objeto "+i+"-> | Peso= "+objetos[i].getPeso()+" | Valor= "+objetos[i].getValor()+" | Ratio= "+objetos[i].getRatio()+" | Seleccionado =  " + sol.getSol()[i]);
+					System.out.println("Beneficio total = "+sol.getY());
+					System.out.print("Solucion = ");
+					if (sol.getSol()[0]) 
+						System.out.print("(1");
+					else
+						System.out.print("(0");
+					for (int i = 1; i < sol.getSol().length ; i++ ){
+						if (sol.getSol()[i]) 
+								System.out.print(",1");
+						else
+							System.out.print(",0");
+					}
+					System.out.println(")");
+				}
 				
+				System.out.println("***************Cotas Ingenua de Luis García*********************************");
 				Mochila m = new Mochila();
 				Arrays.sort(objetos);
-				Tupla sol = m.mochila_rp(objetos, M);				
+				Tupla sol = m.mochila_rp(objetos, M,2);				
 				System.out.println("Solucion de siguiendo el orden (Objeto 0, .... Objeto N)");
 				for (int i = 0; i < sol.getSol().length ; i++ )
 					System.out.println("Objeto "+i+"-> | Peso= "+objetos[i].getPeso()+" | Valor= "+objetos[i].getValor()+" | Ratio= "+objetos[i].getRatio()+" | Seleccionado =  " + sol.getSol()[i]);
@@ -49,6 +76,7 @@ public class Main {
 				}
 				System.out.println(")");
 				
+				/*
 				System.out.println("*******************Cotas ingenuas*****************************");				
 				Mochila m2 = new Mochila();
 				Tupla sol2 = m2.mochila_rp2(objetos, M);
@@ -68,7 +96,27 @@ public class Main {
 						System.out.print(",0");
 				}
 				System.out.println(")");
-
+				
+				System.out.println("*******************Cotas ingenuas Luis *****************************");				
+				Mochila m3 = new Mochila();
+				Tupla sol3 = m3.mochila_rp2(objetos, M);
+				System.out.println("Solucion de siguiendo el orden (Objeto 0, .... Objeto N)");
+				for (int i = 0; i < sol3.getSol().length ; i++ )
+					System.out.println("Objeto "+i+"-> | Peso= "+objetos[i].getPeso()+" | Valor= "+objetos[i].getValor()+" | Ratio= "+objetos[i].getRatio()+" | Seleccionado =  " + sol3.getSol()[i]);
+				System.out.println("Beneficio total = "+sol3.getY());
+				System.out.print("Solucion = ");
+				if (sol3.getSol()[0]) 
+					System.out.print("(1");
+				else
+					System.out.print("(0");
+				for (int i = 1; i < sol3.getSol().length ; i++ ){
+					if (sol3.getSol()[i]) 
+							System.out.print(",1");
+					else
+						System.out.print(",0");
+				}
+				System.out.println(")");
+				*/
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
